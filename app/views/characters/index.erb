@@ -10,7 +10,7 @@ a {
 
 <ul>
 <% @characters.each do |char| %>
-<li><a href="/characters/<%= char.id %>"><%= char.name %></a>
+<li><a href="/characters/<%= char.slug %>"><%= char.name %></a>
 <% end %>
 </ul>
 </body>

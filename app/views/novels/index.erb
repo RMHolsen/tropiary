@@ -1,0 +1,17 @@
+<head>
+<style>
+a {
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+<h1>A Novel List</h1>
+
+<ul>
+<% @novels.each do |novel| %>
+    <li><a href="/novels/<%= novel.slug %>"> <%= novel.title %></a><br>
+    <%= novel.genre %> <em><%= novel.wordcount %></em></li>
+<% end %>
+</ul>
+</body>

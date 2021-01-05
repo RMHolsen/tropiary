@@ -25,22 +25,22 @@ class CharacterController < ApplicationController
         end 
         #Some form of saving the tropes goes here
         #Check the params IDK I am very tired and not feeling well.
-        redirect to "/characters/#{@character.id}"
+        redirect to "/characters/#{@character.slug}"
     end 
 
-    get '/characters/:id' do
-        @character = Character.find(params[:id])
+    get '/characters/:slug' do
+        @character = Character.find_by_slug(params[:slug])
         @novel = @character.novel
-        erb :"/characters/#{@character.id}"
+        erb :"/characters/#{@character.slug}"
         #maybe make this a slug instead of an id
     end 
 
-    get '/characters/:id/edit' do
-        @character = Character.find(params[:id])
+    get '/characters/:slug/edit' do
+        @character = Character.find_by_slug(params[:slug])
         @novels = Novel.all
         @tropes = Trope.all
     end 
 
-    patch '/characters/:id/edit' do
+    patch '/characters/:slug/edit' do
     end 
 end 

@@ -1,6 +1,8 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require_relative '../models/concerns/sluggy'
+
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 def fi_check_migration

@@ -1,0 +1,19 @@
+<head>
+</head>
+<body>
+<h1>Edit A Novel</h1>
+<form method=POST action="/novels/<%= @novel.slug">
+<input type="hidden" id="hidden" name="_method" value="PATCH">
+<p><strong>Title:</strong> <input type="text" name="novel[title]" id="novel_title" value="@novel.title"></p>
+
+<p><strong>Genre:</strong> <input type="text" name="novel[genre]" id="novel_genre" value="@novel.genre"></p>
+<p><strong>Word Count:</strong> <input type="text" name="novel[wordcount]" id="novel_wordcount" value="@novel.wordcount"></p>
+
+<h3>Cast List</h3>
+<% @characters.each do |char| %>
+    <input type="checkbox" name="<%= char.id %>" id="<%= char.id %>" value="<%= char.name %>" <%= 'checked' if char.novel_id == @novel.id %>> <%= char.name %>
+<% end %>
+
+<input type="submit" name="submit" value="Update Novel Details">
+</form>
+</body>

@@ -1,0 +1,19 @@
+<head>
+</head>
+<body>
+<h1>Create Yet Another Novel</h1>
+<h4>(You have too many novels, put some back.)</h4>
+<form method=POST action="/novels">
+<p><strong>Title:</strong> <input type="text" name="novel[title]" id="novel_title"></p>
+
+<p><strong>Genre:</strong> <input type="text" name="novel[genre]" id="novel_genre"></p>
+<p><strong>Word Count:</strong> <input type="text" name="novel[wordcount]" id="novel_wordcount"></p>
+
+<h3>Cast List</h3>
+<% @characters.each do |char| %>
+    <input type="checkbox" name="<%= char.id %>" id="<%= char.id %>"> <%= char.name %>
+<% end %>
+
+<input type="submit" name="submit" value="Create Yet Another Novel">
+</form>
+</body>

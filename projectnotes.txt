@@ -7,10 +7,31 @@
 -- coded views/characters
 -- copied to GitHub
 
+01-05-2021
+-- Added concerns/sluggy and included in character and novel models and views
+-- Hopefully updated all relevant files to require concerns/sluggy
+-- coded /novels/index, /new, /show views
+-- coded character and novel edit forms
 
 TO DO:
--- Look up the Concerns section again from the last bit
-    -- slugging and unslugging goes here
 -- finish writing seed data (write create methods for seed data arrays)
 -- try to migrate databases
--- write forms
+
+TO EXPAND:
+-- make genre a separate model, albeit a simple one: a novel has_many genres
+
+NOTES: 
+-- slugging and unslugging: artists and modules lab, Intro to Modules reading
+
+PROJECT GOALS
+-- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE
+-- Use ActiveRecord with Sinatra. DONE
+-- Use multiple models. DONE
+-- Use at least one has_many relationship on a User model and one belongs_to relationship on another model. DONE
+-- Must have user accounts - users must be able to sign up, sign in, and sign out.
+-- Validate uniqueness of user login attribute (username or email).
+-- Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
+-- Ensure that users can edit and delete only their own resources - not resources created by other users.
+-- Validate user input so bad data cannot be persisted to the database.
+-- BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
+

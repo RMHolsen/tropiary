@@ -1,0 +1,18 @@
+<head>
+<style>
+</style>
+</head>
+<body>
+<h1><%= @novel.title %></h1>
+<h3><%= @novel.genre %> <em><%= @novel.wordcount %></em></h3>
+
+<h3>Cast List</h3>
+<ul>
+<% @characters.each do |char| %>
+    <% if char.novel_id == @novel.id %>
+        <li><%= char.name %>
+    <% end %>
+<% end %>
+</ul>
+
+</body>
