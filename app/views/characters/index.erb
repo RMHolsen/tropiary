@@ -1,0 +1,16 @@
+<head>
+<style>
+a {
+    text-decoration:none;
+}
+</style>
+</head>
+<body>
+<h1>The Master Character List</h1>
+
+<ul>
+<% @characters.each do |char| %>
+<li><a href="/characters/<%= char.id %>"><%= char.name %></a>
+<% end %>
+</ul>
+</body>

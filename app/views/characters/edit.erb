@@ -1,0 +1,24 @@
+<head>
+</head>
+<body>
+<form method=POST action="/characters">
+<p><strong>Name: </strong><input type="text" id="name" name="character[name]" value="@character.name"></p>
+
+<p><strong>Novels:</strong></p>
+<% @novels.each do |novel| %>
+<input type="radio" id="<%= novel.id %>" name="<%= novel.id %>" value="<%= novel.id %>" <%='checked' if @character.novel_id == novel.id %>> <%= novel.name %> 
+<% end %>
+
+<p><input type="radio" name="novel[title]" id="novel_title"> New Novel:
+<input type="text" id="novel_title" name="novel[title]"></p>
+
+<p><strong>Tropes:</strong></p>
+<% @tropes.each do |trope| %>
+<input type="checkbox" id="<%= trope.id %>" name="trope[name]" value="<%= trope.name %>" <%= 'checked' if @character.tropes.include?(trope.name) %>> <%= trope.name %> 
+<% end %>
+
+<p><strong>New Trope: </strong><input type="text" id="trope_name" name="trope[name]"></p>
+
+<input type="submit" name="submit" value="Create Character">
+</form>
+</body>

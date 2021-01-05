@@ -1,0 +1,16 @@
+01-01-2021
+-- basic file structure
+-- models, inheritance only
+-- migration files, first pass, no migration yet
+
+01-04-2021
+-- coded views/characters
+-- copied to GitHub
+
+
+TO DO:
+-- Look up the Concerns section again from the last bit
+    -- slugging and unslugging goes here
+-- finish writing seed data (write create methods for seed data arrays)
+-- try to migrate databases
+-- write forms
