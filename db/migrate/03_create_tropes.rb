@@ -1,4 +1,4 @@
-class CreateTropes < ActiveRecord::Migration 
+class CreateTropes < ActiveRecord::Migration[4.2]
     def change
         create_table :tropes do |t|
             t.string :name

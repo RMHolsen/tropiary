@@ -11,7 +11,7 @@ class NovelController < ApplicationController
     end
 
     post '/novels' do
-    @novel = Novel.create(title: params[:novel][:title], genre: params[:novel][:genre], wordcount: params[:novel][:wordcount])
+    @novel = Novel.create(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count])
     #Collet the new novel data and make the new novel object w/genre and wordcount attributes
     redirect to "/novels/#{@novel.slug}"
     #redirect to the novel page

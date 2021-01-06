@@ -5,12 +5,17 @@ class ApplicationController < Sinatra::Base
     #Hence "erb: "application/index" or what have you
     #... maybe I should actually make that
 
-    register Sinatra::Twitter::Bootstrap::Assets
-    #Not sure what this does
+    #register Sinatra::Twitter::Bootstrap::Assets
+    #Not sure what this does 
   
     get '/' do
       erb :"application/index"
     end
+    
+    get '/novels' do
+      @novels = Novel.all
+      erb :"/novels/index"
+    end 
     
     #login/logout sessions probably go here
   end

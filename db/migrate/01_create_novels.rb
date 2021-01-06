@@ -1,4 +1,4 @@
-class CreateNovels < ActiveRecord::Migration
+class CreateNovels < ActiveRecord::Migration[4.2]
     def change
         create_table :novels do |n|
             n.string :title

@@ -1,7 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
-require_relative '../models/concerns/sluggy'
+#require_relative '../app/models/concerns/sluggy'
 
 Bundler.require(:default, ENV['SINATRA_ENV'])
 

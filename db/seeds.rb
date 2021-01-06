@@ -6,6 +6,14 @@ novel_list = [
     ["Bloodwives", "historical-fiction", 90000],
 ]
 
+novel_list.each do |novel|
+    n = Novel.new
+    n.title = novel[0]
+    n.genre = novel[1]
+    n.word_count = novel[2]
+    n.save
+end 
+
 #Characters
 char_list = ["Pippa di Rafello",
     "Moriah di Raffello",
@@ -16,6 +24,12 @@ char_list = ["Pippa di Rafello",
     "Timothy Laedecker",
     "Raedwulf",
     "Minna"]
+
+char_list.each do |char|
+    c = Character.new
+    c.name = char
+    c.save
+end 
 
 #Tropes
 tropes_list = ["There Was Only One Bed",
@@ -31,3 +45,9 @@ tropes_list = ["There Was Only One Bed",
     "Sweet Polly Oliver",
     "You Killed My Father Prepare To Die"
 ]
+
+tropes_list.each do |trope|
+   t = Trope.new
+   t.name  = trope
+   t.save
+end 

@@ -12,13 +12,24 @@
 -- Hopefully updated all relevant files to require concerns/sluggy
 -- coded /novels/index, /new, /show views
 -- coded character and novel edit forms
+-- migrated databases, no major problems
+-- created and migrated seed data 
+-- did some minor bug hunting
 
 TO DO:
--- finish writing seed data (write create methods for seed data arrays)
--- try to migrate databases
+-- take out sluggy, because of your database structure you can't refactor that into its own thing
+   without redoing the whole database structure. oy
+-- patch code for characters and novels
+-- make tests
+-- run tests
+-- (comment tests? ask what each part of spec helper does)
+-- bug hunt
 
 TO EXPAND:
 -- make genre a separate model, albeit a simple one: a novel has_many genres
+
+BUGS: 
+-- shotgun not reading the individual controllers???
 
 NOTES: 
 -- slugging and unslugging: artists and modules lab, Intro to Modules reading
