@@ -12,10 +12,6 @@ class ApplicationController < Sinatra::Base
       erb :"application/index"
     end
     
-    get '/novels' do
-      @novels = Novel.all
-      erb :"/novels/index"
-    end 
-    
+
     #login/logout sessions probably go here
   end
