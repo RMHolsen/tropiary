@@ -42,5 +42,9 @@ class CharacterController < ApplicationController
     end 
 
     patch '/characters/:slug/edit' do
+        #Edits a characters tropes
+        #Also edits a novel a character is assigned to? Although I don't know why I'd want to do that
+        #Maybe just an option to put the character in a new novel
+        #Decisions
     end 
 end 

@@ -14,20 +14,22 @@
 -- coded character and novel edit forms
 -- migrated databases, no major problems
 -- created and migrated seed data 
--- did some minor bug hunting
--- BUG SMASH: fixed the controller reading issue (note: don't forget to 'use' all your controllers in config.ru)
+-- did some minor bug hunting (bug hunt 1)
+-- BUG SMASH (bug hunt 2): fixed the controller reading issue (note: don't forget to 'use' all your controllers in config.ru)
+
+01-08-2021
+-- added user model, users and sessions controllers, user views
+-- deleted sluggy, alas poor sluggy. next time maybe think about broader methods to inherit before coding the databases
+-- minor styling
 
 TO DO:
--- take out sluggy, because of your database structure you can't refactor that into its own thing
-   without redoing the whole database structure. oy
 -- patch code for characters and novels
 -- make tests
 -- run tests
--- (comment tests? ask what each part of spec helper does)
 -- bug hunt
 
 TO EXPAND:
--- make genre a separate model, albeit a simple one: a novel has_many genres
+-- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
 
 BUGS: 
 
@@ -39,8 +41,8 @@ PROJECT GOALS
 -- Use ActiveRecord with Sinatra. DONE
 -- Use multiple models. DONE
 -- Use at least one has_many relationship on a User model and one belongs_to relationship on another model. DONE
--- Must have user accounts - users must be able to sign up, sign in, and sign out.
--- Validate uniqueness of user login attribute (username or email).
+-- Must have user accounts - users must be able to sign up, sign in, and sign out. DONEish
+-- Validate uniqueness of user login attribute (username or email). DONE
 -- Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
 -- Ensure that users can edit and delete only their own resources - not resources created by other users.
 -- Validate user input so bad data cannot be persisted to the database.

@@ -12,6 +12,4 @@ class ApplicationController < Sinatra::Base
       erb :"application/index"
     end
     
-
-    #login/logout sessions probably go here
   end
