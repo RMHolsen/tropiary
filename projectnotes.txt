@@ -21,9 +21,16 @@
 -- added user model, users and sessions controllers, user views
 -- deleted sluggy, alas poor sluggy. next time maybe think about broader methods to inherit before coding the databases
 -- minor styling
+-- created main index landing page
+-- added helpers to appcont: 
 
 TO DO:
+-- associate novels to users (db column add, belongs_to association in novel model, has_many association in user model)
+-- make sure novels are only accessible to logged in users
+-- make sure characters are only accessible to logged in users, via novels??
+-- recode views to match new tiered wireframe
 -- patch code for characters and novels
+-- make flash messages
 -- make tests
 -- run tests
 -- bug hunt
@@ -35,6 +42,7 @@ BUGS:
 
 NOTES: 
 -- slugging and unslugging: artists and modules lab, Intro to Modules reading
+-- login >> user index of novel projects >> novel: genre, word count, characters, edit option (list of tropes?) >> character >> edit option, list of tropes
 
 PROJECT GOALS
 -- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE
