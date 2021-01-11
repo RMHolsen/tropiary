@@ -24,10 +24,4 @@ class UsersController < ApplicationController
         erb :"/users/show"
     end 
 
-    get '/logout' do
-        #Flash message for logout?
-        session.destroy
-        redirect '/login'
-    end 
-
 end 

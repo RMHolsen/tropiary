@@ -25,11 +25,30 @@
 -- added helpers to appcont: 
 
 TO DO:
+-- NOVELS:
 -- associate novels to users (db column add, belongs_to association in novel model, has_many association in user model)
 -- make sure novels are only accessible to logged in users
--- make sure characters are only accessible to logged in users, via novels??
--- recode views to match new tiered wireframe
--- patch code for characters and novels
+-- add column for synopsis to novels (datatype is text)
+-- style novel show page, index page w/synopsis?, create and edit pages
+-- DON'T FORGET edit/delete links should be at the bottom of the novel page
+-- patch code for novels 
+-- before '/novels/*' do verify_me end
+-- validates :stuff, :user_id, presence: true
+-- post route for new novels @novel = current_user.novels.build(params go here) followed by if @novel.save
+-- in the edit view: IF current_user.id == @novel.user_id THEN render the erb ELSE flash message no touchy and redirect to index
+(can probably also add this to create pages)
+-- CHARACTERS 
+-- route for character show page: 'novels/novel-slug/characters/char-slug' (params[:novel-slug], params[:char_slug])
+-- (this may be a bit complicated but I have faith in you)
+-- style character show page to show the character name, novel, and associated tropes w/descriptions
+-- edit/delete links should be at the bottom of the character page
+-- patch code for characters
+-- (your erb on get /character/slug is weird, it should be a simple show erb, fix it)
+-- @novel = current_user.novels.find(params[:novel]), @character = @novel.characters.find(params[:id])
+-- TROPES 
+-- add a description column (datatype is text)
+
+
 -- make flash messages
 -- make tests
 -- run tests
@@ -37,12 +56,24 @@ TO DO:
 
 TO EXPAND:
 -- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
+-- maybe add a public index page so people can view other people's novels without editing them?
+-- in which case you'll need a button and a separate array for public novels so users can toggle it public/private
+-- maybe add an active/inactive boolean column to the novel thing
 
 BUGS: 
 
 NOTES: 
 -- slugging and unslugging: artists and modules lab, Intro to Modules reading
 -- login >> user index of novel projects >> novel: genre, word count, characters, edit option (list of tropes?) >> character >> edit option, list of tropes
+-- authentication vs authorization 
+-- update method will save, and thus will also trigger validation (making sure all fields have data)
+-- validates method in the model also has an 'on: :create' so you can only validate at a certain point; this doesn't apply here.
+-- erbs do not render http requests, just pull files
+
+@user = current_user 
+if @user.id == @novel.user_id 
+THEN show the novels 
+ELSE show nothing
 
 PROJECT GOALS
 -- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE

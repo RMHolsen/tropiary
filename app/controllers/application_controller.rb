@@ -25,14 +25,22 @@ class ApplicationController < Sinatra::Base
 
       def current_user
         @user ||= User.find(session[:user_id]) if session[:user_id]
+        #Using the or-equals method because EITHER the @user is present and the rest of the method doesn't need to be used
+        #OR we need to find the user based on the session id
       end 
 
-      def authenticate_me
+      def verify_me
+        #Authorisation vs authentication = is your voice your correct passport.
         if !logged_in?
           #flash notice here, something suitably snarky
           redirect "/"
           #Redirects to the main page
         end 
+      end 
+
+      def authorize_edits(novel)
+        current_user.id == novel.user_id 
+        #Shortcut instead of writing "is this person authorized" all over the place 
       end 
     end 
 

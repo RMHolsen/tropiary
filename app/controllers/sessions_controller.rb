@@ -10,11 +10,17 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect "/users/#{user.id}"
             #alternately:
-            #user.try(:authenticate, params[:password])
+            #if @user.try(:authenticate, params[:password])
             #If the user is authenticated by password and existence of username
             #Set the session id and redirect to the user's home page
         else 
             #flash message that says incorrect username or password
             redirect "/login"
+    end 
+
+    get '/logout' do
+        #Flash message for logout?
+        session.destroy
+        redirect '/login'
     end 
 end  
