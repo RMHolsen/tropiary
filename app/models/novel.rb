@@ -3,6 +3,9 @@ class Novel < ActiveRecord::Base
     has_many :characters
     has_many :tropes, through: :characters 
 
+    validates :title, :genre, :word_count, :user_id, presence: true
+    #Won't save without these fields 
+    
     #include Sluggable
 
     def slug

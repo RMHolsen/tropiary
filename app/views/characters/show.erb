@@ -1,7 +1,58 @@
 <head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
 </head>
 <body>
-<h2><%= @character.name %></h2>
-<p>From <a href="/novels/<%= @novel.slug %>"><%= @novel.name %></p>
-<p>A list of tropes goes here.</p>
+<h1><%= @character.name %> from <%= @novel.title %></h1>
+
+<div class="sidebar">
+<p><a href="/novels/<%= @novel.slug %>/characters">Character Index</a></p>
+<p><a href="/novels/<%= @novel.slug %>">Novel Profile</a></p>
+<p><a href="/users/<%= @novel.user_id %>">My Profile</a></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+<p><a href="/logout">Log Out</a></p>
+</div>
+
+<div class="main">
+<% @tropes.each do |trope| %>
+<p><%= trope.name %></p>
+<% end %>
+</div>
 </body>

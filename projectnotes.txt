@@ -36,43 +36,27 @@
 -- BUG SMASH syntax errors, so many syntax errors
 -- styled user show page, user new page, novels index page w/ and w/o login, novel show page
 -- login & logout works
-
+-- styled novel edit and create pages
+-- added edit link to novel page and delete button to novel edit page
+-- added patch code for novels
+-- rerouted characters so charaacters go through novels
+-- routed and styled character show pages to show the character name, novel, and associated tropes w/descriptions
 
 TO DO:
--- NOVELS:
 -- add column for synopsis to novels (datatype is text)
--- style index page, create and edit pages
--- DON'T FORGET edit/delete links should be at the bottom of the novel page
--- patch code for novels 
--- before '/novels/*' do verify_me end
--- validates :stuff, :user_id, presence: true
--- post route for new novels @novel = current_user.novels.build(params go here) followed by if @novel.save
--- in the edit view: IF current_user.id == @novel.user_id THEN render the erb ELSE flash message no touchy and redirect to index
-(can probably also add this to create pages)
--- add delete to the edit view
-
--- CHARACTERS 
--- route for character show page: 'novels/novel-slug/characters/char-slug' (params[:novel-slug], params[:char_slug])
--- (this may be a bit complicated but I have faith in you)
--- style character show page to show the character name, novel, and associated tropes w/descriptions
 -- edit/delete links should be at the bottom of the character page
 -- patch code for characters
--- (your erb on get /character/slug is weird, it should be a simple show erb, fix it)
 -- @novel = current_user.novels.find(params[:novel]), @character = @novel.characters.find(params[:id])
--- TROPES 
--- add a description column (datatype is text)
-
-
+-- add a description column to tropes (datatype is text)
 -- make flash messages
--- make tests
--- run tests
 -- bug hunt
 
 TO EXPAND:
 -- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
--- maybe add a public index page so people can view other people's novels without editing them?
--- in which case you'll need a button and a separate array for public novels so users can toggle it public/private
+-- maybe add a public novel index page so people can view other people's novels without editing them?
+-- in which case you'll need a button and a boolean column so users can toggle it public/not-public
 -- maybe add an active/inactive boolean column to the novel thing
+-- make and run tests for no real reason, just so you know you can
 
 BUGS: 
 
@@ -84,21 +68,19 @@ NOTES:
 -- validates method in the model also has an 'on: :create' so you can only validate at a certain point; this doesn't apply here.
 -- erbs do not render http requests, just pull files
 -- colors: 870d10, b05e60, d79392, 6e1418, f2babb, fce7e1, 973c3c, fad2ce
-
-@user = current_user 
-if @user.id == @novel.user_id 
-THEN show the novels 
-ELSE show nothing
+-- post route for new novels @novel = current_user.novels.build(params go here) followed by if @novel.save
+-- in the edit view: IF current_user.id == @novel.user_id THEN render the erb ELSE flash message no touchy and redirect to index
+(can probably also add this to create pages)
 
 PROJECT GOALS
 -- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE
 -- Use ActiveRecord with Sinatra. DONE
 -- Use multiple models. DONE
 -- Use at least one has_many relationship on a User model and one belongs_to relationship on another model. DONE
--- Must have user accounts - users must be able to sign up, sign in, and sign out. DONEish
+-- Must have user accounts - users must be able to sign up, sign in, and sign out. DONE
 -- Validate uniqueness of user login attribute (username or email). DONE
--- Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
--- Ensure that users can edit and delete only their own resources - not resources created by other users.
--- Validate user input so bad data cannot be persisted to the database.
+-- Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user. DONE
+-- Ensure that users can edit and delete only their own resources - not resources created by other users. DONE 
+-- Validate user input so bad data cannot be persisted to the database. DONE
 -- BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
 

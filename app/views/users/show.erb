@@ -42,7 +42,6 @@ h1 {
 <h1><%= @user.name %>'s page</h1>
 
 <div class="sidebar">
-<p><a href="/logout">Log Out</a></p>
 <p><a href="/novels/new">Create a Novel</a><br>
 <sup>no more novels you are CRUEL and UNJUST</sup></p>
 <p><a href="/novels">All Novels</a><br>
@@ -50,6 +49,11 @@ h1 {
 <p class="fake-link">Edit Profile</p>
 <p class="fake-link">What Is A Trope?</p>
 <p class="fake-link">TVTropes</p>
+<% if !!logged_in? %>
+<p><a href="/logout">Log Out</a></p>
+<% else %>
+<p><a href="/login">Log In</a></p>
+<% end %>
 </div>
 
 <div class="main">

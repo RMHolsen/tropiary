@@ -1,16 +1,67 @@
 <head>
 <style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
 a {
-    text-decoration:none;
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
 }
 </style>
 </head>
 <body>
-<h1>The Master Character List</h1>
+<h1>The Master Character List for <%= @novel.title %></h1>
 
-<ul>
+<div class="sidebar">
+<p><a href="/novels/<%= @novel.slug %>">Novel Profile</a></p>
+<p><a href="/users/<%= @novel.user_id %>">My Profile</a></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+<p><a href="/logout">Log Out</a></p>
+</div>
+
+<div class="main">
 <% @characters.each do |char| %>
-<li><a href="/characters/<%= char.slug %>"><%= char.name %></a>
+    <p><a href="/novels/<%= @novel.slug %>/characters/<%= char.slug %>"><%= char.name %></a></p> 
 <% end %>
-</ul>
+</div>
 </body>

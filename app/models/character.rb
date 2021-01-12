@@ -10,7 +10,9 @@ class Character < ActiveRecord::Base
     end 
 
     def self.find_by_slug(slug)
-        Self.all.find do |x|
+        Character.all.find do |x|
+        #self.class.all.find do |x|
+        #why the crap isn't this working
             x.slug == slug
         end 
     end 

@@ -46,6 +46,7 @@ h2, h3, h4 {
 <h1><%= @novel.title %></h1>
 <div class="sidebar">
 <p><a href="/novels">All Novels</a></p>
+<p><a href="/users/<%= @user.id %>">View Profile</a></p>
 <p class="fake-link">Edit Profile</p>
 <p class="fake-link">What Is A Trope?</p>
 <p class="fake-link">TVTropes</p>
@@ -53,11 +54,24 @@ h2, h3, h4 {
 </div>
 
 <div class="main">
-<h3><%= @novel.genre.upcase %></h3>
-<h4><em><%= @novel.word_count %> words</em></h4>
+<h3><%= @novel.genre.upcase %> -- <em><%= @novel.word_count %> words</em></h3>
+<p>Some kind of summary goes here when I have a synopsis field because I apparently dont know when to quit.</p>
 
 <h3>Cast List</h3>
-<p>This can happen when I make sure all the characters are properly associated.</p>
+
+<% @characters.each do |char| %>
+<p><%= char.name %></p> 
+<% end %>
+
+<br>
+
 <p>Oh my lord why did I make this so complicated.</p>
+
+<% if @novel.user_id == @user.id %>
+<p><a href="/novels/<%= @novel.slug %>/characters/new">Create a Cast</a></p>
+
+<p><a href="/novels/<%= @novel.slug %>/edit">Edit Novel</a></p>
+<% end %>
+
 </div>
 </body>

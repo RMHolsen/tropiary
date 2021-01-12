@@ -1,28 +1,77 @@
 <head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
 </head>
 
 
 <body>
-<form method=POST action="/characters">
-<p><strong>Name: </strong><input type="text" id="name" name="character[name]"></p>
+<h1>Create a Character for <%= @novel.title %></h1>
+<div class="sidebar">
+<p><a href="/novels/<%= @novel.slug %>">Novel Profile</a></p>
+<p><a href="/users/<%= @novel.user_id %>">My Profile</a></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+<p><a href="/logout">Log Out</a></p>
+</div>
 
-<p><strong>Novels:</strong></p>
-<% @novels.each do |novel| %>
-<input type="radio" id="<%= novel.id %>" name="<%= novel.id %>"> <%= novel.name %> 
-<% end %>
-
-<input type="radio" name="novel[title]" id="novel_title"> New Novel
-
-<p><strong>New Novel:</strong> <input type="text" id="novel_title" name="novel[title]"></p>
+<div class="main">
+<form action="/novels/<%= @novel.slug %>/characters" method=POST>
+<p><strong>Name:</strong> <input type="text" name="name" id="name"></p>
 
 <p><strong>Tropes:</strong></p>
 <% @tropes.each do |trope| %>
-<input type="checkbox" id="<%= trope.id %>" name="trope[name]"> <%= trope.name %> 
+<input type="checkbox"  name="trope_ids[]" id="<%= trope.id %>" value="<%= trope.id %>"> <%= trope.name %> <br>
 <% end %>
+<br>
 
-<p><strong>New Trope: </strong><input type="text" id="trope_name" name="trope[name]"></p>
-
-<input type="submit" name="submit" value="Create Character">
+<input type="submit" value="Create Character">
 </form>
+</div>
 </body>
 

@@ -1,15 +1,13 @@
-<h3>Cast List</h3>
-<% @characters.each do |char| %>
-    <input type="checkbox" name="<%= char.id %>" id="<%= char.id %>"> <%= char.name %>
-<% end %>
 
 
-<ul>
-<% @characters.each do |char| %>
-    <% if char.novel_id == @novel.id %>
-        <li><%= char.name %>
-    <% end %>
-<% end %>
-</ul>
-
+    post '/characters' do
+        @character = Character.create(name: params[:character][:name], novel_id: params.key("on"))
+        if !params["novel"]["name"].empty?
+            @character.novel = Novel.create(title: params[:novel][:title])
+            @character.save
+        end 
+        #Some form of saving the tropes goes here
+        #Check the params IDK I am very tired and not feeling well.
+        redirect to "/characters/#{@character.slug}"
+    end 
 

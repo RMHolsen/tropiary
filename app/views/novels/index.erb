@@ -63,10 +63,13 @@ li {
 <h1><%= @user.name %>'s Novels</h1>
 
 <div class="sidebar">
-<p><a href="/logout">Log Out</a></p>
+<p><a href="/novels/new">Create a Novel</a><br>
+<sup>no more novels you are CRUEL and UNJUST</sup></p>
+<p><a href="/users/<%= @user.id %>">View Profile</a></p>
 <p class="fake-link">Edit Profile</p>
 <p class="fake-link">What Is A Trope?</p>
 <p class="fake-link">TVTropes</p>
+<p><a href="/logout">Log Out</a></p>
 </div>
 
 <div class="main">
@@ -79,7 +82,7 @@ li {
 </div>
 
 <% else %>
-<p>Nobody is logged in, nothing to see here.</p>
+<p>Nobody is logged in, nothing to see here. If you want to <a href="/login">log in</a> to see your novels, that might be a good idea. Otherwise, you can <a href="/signup">create an account</a>.</p>
 
 <% end %>
 </body>
