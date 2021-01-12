@@ -1,11 +1,60 @@
 <head>
 <style>
-.login_header h4 {
-    color: maroon;
+body {
+    background-color: #E1E1E1;
+}
+
+p {
     font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h4 {
+    color: #6E1418;
+    font-family: TimesNewRoman, serif;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
 }
 </style>
 </head>
 <body>
-<div class="login_header"><h4>Please log in to continue.</h4></div>
+
+<div class="sidebar">
+
+</div>
+
+<div class="main">
+<h4>Please log in to continue.</h4></div>
+
+<form action="/login" method=POST>
+<p><strong>Username: </strong> <input type="text" name="username" id="username"></p>
+<p><strong>Password: </strong> <input type="password" name="password" id="password"></p>
+
+<button type="submit">Log In</button>
+</form>
 </body>

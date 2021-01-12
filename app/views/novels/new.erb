@@ -1,19 +1,74 @@
 <head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
 </head>
+
 <body>
-<h1>Create Yet Another Novel</h1>
+<h1><%= @user.name %>'s page</h1>
+
+<div class="sidebar">
+<p><a href="/logout">Log Out</a></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+</div>
+
+<div class="main">
+<h2>Create Yet Another Novel</h2>
 <h4>(You have too many novels, put some back.)</h4>
+
 <form method=POST action="/novels">
 <p><strong>Title:</strong> <input type="text" name="novel[title]" id="novel_title"></p>
 
 <p><strong>Genre:</strong> <input type="text" name="novel[genre]" id="novel_genre"></p>
 <p><strong>Word Count:</strong> <input type="text" name="novel[word_count]" id="novel_word_count"></p>
-
-<h3>Cast List</h3>
-<% @characters.each do |char| %>
-    <input type="checkbox" name="<%= char.id %>" id="<%= char.id %>"> <%= char.name %>
-<% end %>
-
-<input type="submit" name="submit" value="Create Yet Another Novel">
+<button type="submit">Create Yet Another Novel</button>
 </form>
+
+</div>
 </body>

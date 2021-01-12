@@ -1,13 +1,15 @@
 class NovelController < ApplicationController
 
     get '/novels' do
-        @novels = Novel.all
+        @user = current_user
+        #@novels = Novel.all
         erb :"/novels/index"
     end 
 
     get '/novels/new' do
-    @characters = Character.all
+    @user = current_user
     #Make a new novel
+    erb :"/novels/new"
     end
 
     post '/novels' do

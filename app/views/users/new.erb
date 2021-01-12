@@ -1,14 +1,62 @@
 <head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
 </head>
 <body>
 
+<h1>Welcome to Tropiary! - Sign Up</h1>
+
+<div class="sidebar">
+<p class="fake-link">Log In</p>
+<p><a href="/signup">Sign Up</a></p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+</div>
+
+<div class="main">
 <form method=POST action="/users">
 <p>
-<strong>Name:</strong> <input type="text" id="name" name="name">
-<strong>Username:</strong> <input type="text" id="username" name="username">
-<strong>Password:</strong> <input type="password" id="password" name="password">
+<strong>Name:</strong> <input type="text" id="name" name="name"><br>
+<strong>Username:</strong> <input type="text" id="username" name="username"><br>
+<strong>Password:</strong> <input type="password" id="password" name="password"><br>
 </p>
-<input type="submit" name="submit" id="submit" value="Create Account">
+<button type="submit">Create Account</button>
 </form>
+</div>
 
 </body>

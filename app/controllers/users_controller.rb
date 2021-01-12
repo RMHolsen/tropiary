@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     end 
 
     post '/users' do
+        #binding.pry
         user = User.new(params)
         #Creates a new user with the information in the params
         if user.save
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         #User home page
-        @user = user.Find(params[:id])
+        @user = User.find(params[:id])
         erb :"/users/show"
     end 
 

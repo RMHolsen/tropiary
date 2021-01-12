@@ -24,12 +24,24 @@
 -- created main index landing page
 -- added helpers to appcont: 
 
+01-11-2021
+-- BUG SMASH: some formatting errors, some failure to inherit method errors
+-- migrated user class db 
+-- associated novels to users (db column add to novels, belongs_to in novel model, has_many in user model)
+-- added bcrypt, better late than never
+-- had to stop there when shotgun coughed and died 
+
+01-12-2021
+-- styled index page
+-- BUG SMASH syntax errors, so many syntax errors
+-- styled user show page, user new page, novels index page w/ and w/o login, novel show page
+-- login & logout works
+
+
 TO DO:
 -- NOVELS:
--- associate novels to users (db column add, belongs_to association in novel model, has_many association in user model)
--- make sure novels are only accessible to logged in users
 -- add column for synopsis to novels (datatype is text)
--- style novel show page, index page w/synopsis?, create and edit pages
+-- style index page, create and edit pages
 -- DON'T FORGET edit/delete links should be at the bottom of the novel page
 -- patch code for novels 
 -- before '/novels/*' do verify_me end
@@ -37,6 +49,8 @@ TO DO:
 -- post route for new novels @novel = current_user.novels.build(params go here) followed by if @novel.save
 -- in the edit view: IF current_user.id == @novel.user_id THEN render the erb ELSE flash message no touchy and redirect to index
 (can probably also add this to create pages)
+-- add delete to the edit view
+
 -- CHARACTERS 
 -- route for character show page: 'novels/novel-slug/characters/char-slug' (params[:novel-slug], params[:char_slug])
 -- (this may be a bit complicated but I have faith in you)
@@ -69,6 +83,7 @@ NOTES:
 -- update method will save, and thus will also trigger validation (making sure all fields have data)
 -- validates method in the model also has an 'on: :create' so you can only validate at a certain point; this doesn't apply here.
 -- erbs do not render http requests, just pull files
+-- colors: 870d10, b05e60, d79392, 6e1418, f2babb, fce7e1, 973c3c, fad2ce
 
 @user = current_user 
 if @user.id == @novel.user_id 

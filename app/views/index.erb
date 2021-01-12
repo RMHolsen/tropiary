@@ -1,12 +1,57 @@
 <head>
 <style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
 a {
     text-decoration: none;
 }
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+
 </style>
 </head>
 
 <body>
-<h1>Welcome to Tropiary!
-<p><a href="/signup">Sign Up</a> -- <a href="/login">Log In</a></p>
+<h1>Welcome to Tropiary!</h1>
+
+<div class="sidebar">
+<p><a href="/login">Log In</a></p>
+<p><a href="/signup">Sign Up</a></p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+</div>
+
+<div class="main">
+<p>Welcome to Tropiary!</p>
+<p>Tropiary is a test website created for a Flatiron Sinatra project. Through Tropiary a user can organize their thoughts about a novel that they may intend to write at some point in their life ever, by filling in the basic details of the novel and describing the characters in it through Tropes. </p>
+<p>Tropes are not bad! Tropes are useful storytelling devices, these days often with pithy names via the internet, that employ shorthand descriptions for common patterns in fiction. Some patterns are linked to certain genres, others exist in sequence one as a result of another, others appear as reactions to certain types of real world events. Tropes are also a useful way of describing a novel you intend to write, as it can imply details about the plot and characters without having to explicitly fill it in until you are ready.</p>
+</div>
 </body>

@@ -1,5 +1,5 @@
 class ApplicationController < Sinatra::Base
-  use Rack::Flash
+  #use Rack::Flash
     configure do 
     set :views, proc { File.join(root, '../views/') }
     #Sets the views folder to the, well, views folder

@@ -1,14 +1,59 @@
 <head>
 <style>
-a {
-    text-decoration:none;
+body {
+    background-color: #E1E1E1;
+}
+
+p {
     font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
 }
 </style>
 </head>
+
 <body>
 <h1><%= @user.name %>'s page</h1>
+
+<div class="sidebar">
+<p><a href="/logout">Log Out</a></p>
+<p><a href="/novels/new">Create a Novel</a><br>
+<sup>no more novels you are CRUEL and UNJUST</sup></p>
+<p><a href="/novels">All Novels</a><br>
+<sup>Look at them. Look how many there are.</sup></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+</div>
+
+<div class="main">
 <p>You can get fancy about this later, right now this is a landing page for each user. Calm down.</p>
-<br>
-<a href="/logout">Log Out</a>
+</div>
+
 </body>

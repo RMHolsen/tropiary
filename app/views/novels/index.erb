@@ -1,37 +1,85 @@
 <head>
 <style>
+body {
+    background-color: #E1E1E1;
+}
+
 p {
     font-family: Verdana, sans-serif;
-    font-size: 12pt;
-    padding: 5px 0px 5px 10px;
 }
 
 a {
     text-decoration: none;
-    text-transform: uppercase;
-    color: lightgray;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
 }
 
 ul {
     list-style-type: none;
-    background-color: lightgray;
-    width: 75%;
+    background-color: #6e1418 ;
     padding: 20px 20px 20px 20px;
 }
 
 li {
-    background-color: maroon;
-    color: white;
+    background-color: #E1E1E1;
+    padding-left: 10px;
 }
 </style>
 </head>
 <body>
-<h1>A Novel List</h1>
+<% if !!logged_in? %>
+<h1><%= @user.name %>'s Novels</h1>
 
+<div class="sidebar">
+<p><a href="/logout">Log Out</a></p>
+<p class="fake-link">Edit Profile</p>
+<p class="fake-link">What Is A Trope?</p>
+<p class="fake-link">TVTropes</p>
+</div>
+
+<div class="main">
 <ul>
-<% @novels.each do |novel| %>
+<% @user.novels.each do |novel| %>
     <li><p><a href="/novels/<%= novel.slug %>"> <%= novel.title %></a><br><br>
-    A <%= novel.genre %> novel -- <em><%= novel.word_count %> words</em></p></li>
+    A <%= novel.genre %> novel -- <em><%= novel.word_count %> words</em><br></p></li>
 <% end %>
 </ul>
+</div>
+
+<% else %>
+<p>Nobody is logged in, nothing to see here.</p>
+
+<% end %>
 </body>

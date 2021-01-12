@@ -1,0 +1,15 @@
+<h3>Cast List</h3>
+<% @characters.each do |char| %>
+    <input type="checkbox" name="<%= char.id %>" id="<%= char.id %>"> <%= char.name %>
+<% end %>
+
+
+<ul>
+<% @characters.each do |char| %>
+    <% if char.novel_id == @novel.id %>
+        <li><%= char.name %>
+    <% end %>
+<% end %>
+</ul>
+
+

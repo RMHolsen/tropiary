@@ -23,4 +23,6 @@ ActiveRecord::Base.establish_connection(
 
 require_all 'app'
 require_all 'lib'
+require_all 'public'
+
 require 'rack-flash'
