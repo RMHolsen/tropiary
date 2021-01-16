@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 9) do
 
   create_table "char_tropes", force: :cascade do |t|
     t.integer "trope_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.integer "novel_id"
+    t.text "descrip"
   end
 
   create_table "novels", force: :cascade do |t|
@@ -28,12 +29,14 @@ ActiveRecord::Schema.define(version: 6) do
     t.integer "word_count"
     t.integer "trope_id"
     t.integer "user_id"
+    t.text "synopsis"
   end
 
   create_table "tropes", force: :cascade do |t|
     t.string "name"
     t.integer "character_id"
     t.integer "novel_id"
+    t.text "descrip"
   end
 
   create_table "users", force: :cascade do |t|

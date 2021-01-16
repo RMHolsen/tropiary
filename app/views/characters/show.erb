@@ -58,7 +58,8 @@ h2, h3, h4 {
 <div class="main">
 <h2>Character Tropes</h2>
 <% @tropes.each do |trope| %>
-<p><%= trope.name %></p>
+<p><strong><%= trope.name %></strong><br>
+<%= trope.descrip %></p>
 <% end %>
 <br>
 <p><a href="/novels/<%= @novel.slug %>/characters/<%= @character.slug %>/edit">Edit Character</a></p>

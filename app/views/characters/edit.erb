@@ -58,6 +58,8 @@ h2, h3, h4 {
 <form action="/novels/<%= @novel.slug %>/characters/<%= @character.slug %>" method=POST>
 <input type="hidden" id="hidden" name="_method" value="PATCH">
 <p><strong>Name:</strong> <input type="text" name="name" id="name" value="<%= @character.name %>"></p>
+<p><strong>Description:</strong><br>
+<textarea type="text" name="descrip" id="descrip" cols=50 rows=15><%= @character.descrip %></textarea></P>
 
 <p><strong>Tropes:</strong></p>
 <% @tropes.each do |trope| %>

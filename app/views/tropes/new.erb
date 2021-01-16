@@ -1,0 +1,58 @@
+<head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
+</head>
+
+<body>
+<h1>Create a Trope</h1>
+<form action="/tropes" method=POST>
+<p><strong>Name:</strong> <input type="text" name="name" id="name"></p>
+<p><strong>Description:</strong> <textarea type="text" name="descrip" id="descrip" cols=50 rows=10>Describe your trope here.</textarea></p>
+<input type="submit" value="Create a Trope">
+</form>
+</body>

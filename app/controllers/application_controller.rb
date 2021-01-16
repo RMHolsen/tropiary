@@ -16,6 +16,33 @@ class ApplicationController < Sinatra::Base
     get '/' do
       erb :"index"
     end
+
+    get '/tropes' do
+      @tropes = Trope.all
+      erb :"/tropes/index"
+    end 
+
+    get '/tropes/new' do
+      erb :"/tropes/new"
+    end 
+
+    post '/tropes' do 
+      Trope.create(name: params[:name], descrip: params[:descrip])
+      redirect to "/tropes"
+    end 
+
+    get '/tropes/:slug/edit' do 
+      @trope = Trope.find_by_slug(params[:slug])
+      erb :"/tropes/edit"
+    end 
+
+    patch '/tropes/:slug' do 
+      @trope = Trope.find_by_slug(params[:slug])
+      @trope.name = params[:name]
+      @trope.descrip = params[:descrip]
+      @trope.save
+      redirect to "/tropes"
+    end 
     
     helpers do
       #These methods are available to the controllers and the views both

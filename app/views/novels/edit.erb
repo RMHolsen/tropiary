@@ -67,7 +67,7 @@ h2, h3, h4 {
 
 <p><strong>Genre:</strong> <input type="text" name="novel[genre]" id="novel_genre" value="<%= @novel.genre %>"></p>
 <p><strong>Word Count:</strong> <input type="text" name="novel[word_count]" id="novel_word_count" value="<%= @novel.word_count %>"></p>
-
+<p><strong>Synopsis:</strong><br> <textarea type="text" name="novel[synopsis]" id="novel_synopsis" rows=25 cols=75><%= @novel.synopsis %></textarea></p>
 
 <button type="submit">Update Novel Details</button>
 </form>

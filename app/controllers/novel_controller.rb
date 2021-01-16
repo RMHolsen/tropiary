@@ -14,7 +14,7 @@ class NovelController < ApplicationController
 
     post '/novels' do
     @user = current_user
-    @novel = current_user.novels.build(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count])
+    @novel = current_user.novels.build(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count], synopsis: params[:synopsis])
     #@user.novels << @novel ------ code for Novel.create 
     #Collect the data and build a new novel off the current user
         if @novel.save 
@@ -51,7 +51,7 @@ class NovelController < ApplicationController
     patch '/novels/:slug' do 
     @novel = Novel.find_by_slug(params[:slug])
         if current_user.id == @novel.user_id
-            @novel.update(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count])
+            @novel.update(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count], synopsis: params[:novel][:synopsis])
             erb :"/novels/show"
         else 
         #flash message goes here

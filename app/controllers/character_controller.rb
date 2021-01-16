@@ -37,7 +37,7 @@ class CharacterController < ApplicationController
     post '/novels/:novel_slug/characters' do 
     @novel = Novel.find_by_slug(params[:novel_slug])
         if current_user.id == @novel.user_id 
-            @character = Character.create(name: params[:name])
+            @character = Character.create(name: params[:name], descrip: params[:descrip])
             @character.novel = @novel 
             @tropes = params[:trope_ids]
                 @tropes.each do |t|
@@ -80,7 +80,7 @@ class CharacterController < ApplicationController
         if current_user.id == @novel.user_id
             #Edits a characters tropes
             #Does NOT edit the novel a character is assigned to, just offers to delete the character
-            @character.update(name: params[:name])
+            @character.update(name: params[:name], descrip: params[:descrip])
             @character.tropes.clear
             #This may not be the best way to do this but it's the simplest that I can think of right now?
             @tropes = params[:trope_ids]

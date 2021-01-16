@@ -1,0 +1,59 @@
+<head>
+<style>
+body {
+    background-color: #E1E1E1;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    background-color: #6e1418;
+    width: 80%;
+    color: #E1E1E1;
+    font-family: TimesNewRoman, serif;
+    padding: 8px;
+}
+
+h2 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
+h4 { 
+    font-family: TimesNewRoman, serif;
+color: #6e1418 ;
+}
+
+.sidebar {
+    margin: 0px 10px 0px 10px;
+    float: left;
+    width: 25%;
+}
+
+.main {
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+    float: left;
+}
+
+.fake-link {
+    color: blue;
+}
+</style>
+</head>
+<body>
+<h1>Trope Master List</h1>
+
+<% @tropes.each do |trope| %>
+    <p><%= trope.name %><br>
+    <%= trope.descrip %><br>
+    <sup><a href="/tropes/<%= trope.slug %>/edit">Edit this Trope</a></sup></p>
+    <br>
+<% end %>
+</body>

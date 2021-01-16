@@ -55,7 +55,7 @@ h2, h3, h4 {
 
 <div class="main">
 <h3><%= @novel.genre.upcase %> -- <em><%= @novel.word_count %> words</em></h3>
-<p>Some kind of summary goes here when I have a synopsis field because I apparently dont know when to quit.</p>
+<p><%= @novel.synopsis %></p>
 
 <h3><a href="/novels/<%= @novel.slug %>/characters">Cast List</a></h3>
 
@@ -64,7 +64,7 @@ h2, h3, h4 {
 <p>Oh my lord why did I make this so complicated.</p>
 
 <% if @novel.user_id == @user.id %>
-<p><a href="/novels/<%= @novel.slug %>/characters/new">Create a Cast</a></p>
+<p><a href="/novels/<%= @novel.slug %>/characters/new">Create or Add To a Cast</a></p>
 
 <p><a href="/novels/<%= @novel.slug %>/edit">Edit Novel</a></p>
 <% end %>

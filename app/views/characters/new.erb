@@ -63,10 +63,12 @@ color: #6e1418 ;
 <div class="main">
 <form action="/novels/<%= @novel.slug %>/characters" method=POST>
 <p><strong>Name:</strong> <input type="text" name="name" id="name"></p>
+<p><strong>Description:</strong><br>
+<textarea type="text" name="descrip" id="descrip" cols=50 rows=15>Write a short description of your character here.</textarea></P>
 
 <p><strong>Tropes:</strong></p>
 <% @tropes.each do |trope| %>
-<input type="checkbox"  name="trope_ids[]" id="<%= trope.id %>" value="<%= trope.id %>"> <%= trope.name %> <br>
+<input type="checkbox"  name="trope_ids[]" id="<%= trope.id %>" value="<%= trope.id %>"> <%= trope.name %> - <%= trope.descrip %> <br>
 <% end %>
 <br>
 
