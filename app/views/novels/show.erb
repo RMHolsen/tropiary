@@ -57,11 +57,7 @@ h2, h3, h4 {
 <h3><%= @novel.genre.upcase %> -- <em><%= @novel.word_count %> words</em></h3>
 <p>Some kind of summary goes here when I have a synopsis field because I apparently dont know when to quit.</p>
 
-<h3>Cast List</h3>
-
-<% @characters.each do |char| %>
-<p><%= char.name %></p> 
-<% end %>
+<h3><a href="/novels/<%= @novel.slug %>/characters">Cast List</a></h3>
 
 <br>
 

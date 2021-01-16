@@ -42,14 +42,17 @@
 -- rerouted characters so charaacters go through novels
 -- routed and styled character show pages to show the character name, novel, and associated tropes w/descriptions
 
+01-15-2021
+-- added modify/delete links at the bottom of the character page
+-- patch code entered for characters
+-- BUG SMASH. Lots of syntax errors.
+
+
 TO DO:
 -- add column for synopsis to novels (datatype is text)
--- edit/delete links should be at the bottom of the character page
--- patch code for characters
--- @novel = current_user.novels.find(params[:novel]), @character = @novel.characters.find(params[:id])
 -- add a description column to tropes (datatype is text)
 -- make flash messages
--- bug hunt
+
 
 TO EXPAND:
 -- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
@@ -71,6 +74,7 @@ NOTES:
 -- post route for new novels @novel = current_user.novels.build(params go here) followed by if @novel.save
 -- in the edit view: IF current_user.id == @novel.user_id THEN render the erb ELSE flash message no touchy and redirect to index
 (can probably also add this to create pages)
+-- @novel = current_user.novels.find(params[:novel]), @character = @novel.characters.find(params[:id])
 
 PROJECT GOALS
 -- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE

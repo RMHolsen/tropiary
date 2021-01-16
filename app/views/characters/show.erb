@@ -20,6 +20,11 @@ h1 {
     padding: 8px;
 }
 
+h2, h3, h4 {
+    font-family: TimesNewRoman, serif;
+    color: #6e1418 ;
+}
+
 .sidebar {
     margin: 0px 10px 0px 10px;
     float: left;
@@ -51,8 +56,11 @@ h1 {
 </div>
 
 <div class="main">
+<h2>Character Tropes</h2>
 <% @tropes.each do |trope| %>
 <p><%= trope.name %></p>
 <% end %>
+<br>
+<p><a href="/novels/<%= @novel.slug %>/characters/<%= @character.slug %>/edit">Edit Character</a></p>
 </div>
 </body>
