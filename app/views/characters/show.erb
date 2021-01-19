@@ -40,6 +40,11 @@ h2, h3, h4 {
 .fake-link {
     color: blue;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -56,6 +61,16 @@ h2, h3, h4 {
 </div>
 
 <div class="main">
+<% if flash.has?(:nedry) %>
+  <h2 class="error"><%= flash[:nedry] %></h2>
+  <br>
+<% elsif flash.has?(:create) %>
+  <h2><%= flash[:create] %></h2>
+<% elsif flash.has?(:update) %>
+  <h2><%= flash[:update] %></h2>
+<% end %>
+
+
 <h2>Character Tropes</h2>
 <% @tropes.each do |trope| %>
 <p><strong><%= trope.name %></strong><br>

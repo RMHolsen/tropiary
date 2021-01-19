@@ -1,26 +1,26 @@
 class SessionsController < ApplicationController
     
     get '/login' do
+        #Login page
         erb :"/sessions/new"
     end 
 
     post '/login' do
+        #Logs the user in and authenticates and starts a session, goes to user's home page.
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
             #alternately:
             #if @user.try(:authenticate, params[:password])
-            #If the user is authenticated by password and existence of username
-            #Set the session id and redirect to the user's home page
         else 
-            #flash message that says incorrect username or password
+            flash[:login_error] = "Login error, please try again."
             redirect "/login"
         end 
     end 
 
     get '/logout' do
-        #Flash message for logout?
+        #logs user out
         session.destroy
         redirect '/login'
     end 

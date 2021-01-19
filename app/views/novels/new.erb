@@ -45,6 +45,10 @@ color: #6e1418 ;
 .fake-link {
     color: blue;
 }
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 
@@ -62,6 +66,11 @@ color: #6e1418 ;
 <div class="main">
 <h2>Create Yet Another Novel</h2>
 <h4>(You have too many novels, put some back.)</h4>
+
+<% if flash.has?(:input_error) %>
+  <h2 class="error"><%= flash[:input_error] %></h2>
+  <br>
+<% end %>
 
 <form method=POST action="/novels">
 <p><strong>Title:</strong> <input type="text" name="novel[title]" id="novel_title"></p>

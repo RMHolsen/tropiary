@@ -40,6 +40,10 @@ h2, h3, h4 {
 .fake-link {
     color: blue;
 }
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -72,10 +76,12 @@ h2, h3, h4 {
 <button type="submit">Update Novel Details</button>
 </form>
 
+<% if authorize(@novel) %>
 <form method=POST action="/novels/<%= @novel.slug %>">
 <input type="hidden" id="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Novel">
 </form>
+<% end %>
 </div>
 
 </body>

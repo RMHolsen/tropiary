@@ -1,4 +1,15 @@
 
+Nedry Error:
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+<% if flash.has?(:nedry) %>
+  <h2 class="error"><%= flash[:nedry] %></h2>
+  <br>
+<% end %>
 
     post '/characters' do
         @character = Character.create(name: params[:character][:name], novel_id: params.key("on"))
@@ -14,3 +25,14 @@
 <% @characters.each do |char| %>
 <p><%= char.name %></p> 
 <% end %>
+
+    #get '/characters' do
+        #@characters = Character.all
+        #Character Index
+        #Shows all the characters with links to their pages
+        #Doesn't NEED to show the novel related to them, self, really
+        #That's for future functionality
+        #erb :"/characters/index"
+    #end 
+    #THIS FORM OF CHARACTER INDEX NOW OBSOLETE
+    #I honestly don't know why I'm leaving this in here but I am. 

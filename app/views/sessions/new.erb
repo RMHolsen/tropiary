@@ -40,15 +40,26 @@ h4 {
 .fake-link {
     color: blue;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
 
 <div class="sidebar">
-
+<p class="fake-link">View Novels By User</p>
+<p class="fake-link">View User Profiles</p>
+<p><a href="/">Main Page</a></p>
 </div>
 
 <div class="main">
+<% if flash.has?(:login_error) %>
+  <h2 class="error"><%= flash[:login_error] %></h2>
+  <br>
+<% end %>
 <h4>Please log in to continue.</h4></div>
 
 <form action="/login" method=POST>

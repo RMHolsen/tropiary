@@ -47,12 +47,14 @@
 -- patch code entered for characters
 -- BUG SMASH. Lots of syntax errors.
 
+01-18-2021
+-- cleaned up some authorizations/located authorizations needed
+-- double checked and added an if-authorized function for viewing the delete button on edit characters/novels views
+-- added logged in method to novel controller
+-- added flash error messages
+-- added flash create/update messages for novels and characters
 
 TO DO:
--- add column for synopsis to novels (datatype is text)
--- add a description column to tropes (datatype is text)
--- make flash messages
-
 
 TO EXPAND:
 -- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
@@ -60,6 +62,7 @@ TO EXPAND:
 -- in which case you'll need a button and a boolean column so users can toggle it public/not-public
 -- maybe add an active/inactive boolean column to the novel thing
 -- make and run tests for no real reason, just so you know you can
+-- do something with the tropes page?
 
 BUGS: 
 
@@ -86,5 +89,5 @@ PROJECT GOALS
 -- Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user. DONE
 -- Ensure that users can edit and delete only their own resources - not resources created by other users. DONE 
 -- Validate user input so bad data cannot be persisted to the database. DONE
--- BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
+-- BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!) DONE
 

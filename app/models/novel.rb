@@ -4,9 +4,8 @@ class Novel < ActiveRecord::Base
     has_many :tropes, through: :characters 
 
     validates :title, :genre, :word_count, :user_id, presence: true
-    #Won't save without these fields 
-    
-    #include Sluggable
+    #Makes sure all of these fields are there otherwise no save functionality
+    #At some point this should be reflected in the CSS/HTML
 
     def slug
         self.title.downcase.gsub(" ", "-")

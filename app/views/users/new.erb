@@ -35,6 +35,10 @@ h1 {
 .fake-link {
     color: blue;
 }
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -49,6 +53,10 @@ h1 {
 </div>
 
 <div class="main">
+<% if flash.has?(:input_error) %>
+  <h2 class="error"><%= flash[:input_error] %></h2>
+  <br>
+<% end %>
 <form method=POST action="/users">
 <p>
 <strong>Name:</strong> <input type="text" id="name" name="name"><br>

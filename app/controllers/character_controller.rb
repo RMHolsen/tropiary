@@ -1,42 +1,36 @@
 class CharacterController < ApplicationController
-
-    #get '/characters' do
-        #@characters = Character.all
-        #Character Index
-        #Shows all the characters with links to their pages
-        #Doesn't NEED to show the novel related to them, self, really
-        #That's for future functionality
-        #erb :"/characters/index"
-    #end 
-    #THIS FORM OF CHARACTER INDEX NOW OBSOLETE
-    #I honestly don't know why I'm leaving this in here but I am. 
+    #There is no get /characters/ do because characters derive from novels
 
     get '/novels/:novel_slug/characters' do
     #Displays the list of characters in each novel
+    #Originally this had an authorize method but then I decided I didn't care about the viewing abilities
     @novel = Novel.find_by_slug(params[:novel_slug])
-    #Do I really care if other users can READ who's in what novel or ... decisions.
-        if current_user.id == @novel.user_id 
-            @characters = @novel.characters.all 
-            erb :"/characters/index"
-        else 
-            redirect to "/"
-        end 
+    @characters = @novel.characters.all 
+    erb :"/characters/index"
     end 
 
     get '/novels/:novel_slug/characters/new' do
     #Loads form to create a new character for a specific novel
     @novel = Novel.find_by_slug(params[:novel_slug])
     @tropes = Trope.all
-        if current_user.id == @novel.user_id 
+        if logged_in? && authorize(@novel)
+            #If authorized, pull up a new character form
             erb :"/characters/new"
         else 
-            erb :"/characters/index"
+            #Otherwise redirect to the novel character index
+            #When I am a grown-up dev I will have to make this something normal like flash[:error]
+            #But for now it's flash[:nedry] dammit.
+            flash[:nedry] = "Ah-ah-ah! You didn't say the magic word!"
+            redirect to "/novels/#{@novel.slug}/characters"
         end 
     end 
 
     post '/novels/:novel_slug/characters' do 
     @novel = Novel.find_by_slug(params[:novel_slug])
-        if current_user.id == @novel.user_id 
+        #Again, this is where the authorize method should go, silly.
+        if logged_in? && authorize(@novel) 
+            #Creates a new character for a specific novel based on parameters
+            #Renders the character page for the character
             @character = Character.create(name: params[:name], descrip: params[:descrip])
             @character.novel = @novel 
             @tropes = params[:trope_ids]
@@ -44,12 +38,11 @@ class CharacterController < ApplicationController
                     @character.tropes << Trope.find(t)
                 end 
             @character.save 
-            #Creates a new character for a specific novel based on parameters
-            #Renders the character index for the novel
+            flash[:create] = "New character created."
             redirect to "/novels/#{@novel.slug}/characters/#{@character.slug}"
         else 
+            flash[:nedry] = "Ah-ah-ah! You didn't say the magic word!"
             redirect to "/novels/#{@novel.slug}/characters"
-            #flash message you bad person
         end 
     end 
 
@@ -62,24 +55,26 @@ class CharacterController < ApplicationController
     end 
 
     get '/novels/:novel_slug/characters/:slug/edit' do
+    #Edit form for the character
     @novel = Novel.find_by_slug(params[:novel_slug])
     @character = Character.find_by_slug(params[:slug])
     @tropes = Trope.all
-        if current_user.id == @novel.user_id 
-            #Shows the character name and the tropes associated
+        if logged_in? && authorize(@novel)
+            #If user is logged in and authorized, edit form
             erb :"/characters/edit"
         else
-            #No editing other people's characters you bad person 
+            flash[:nedry] = "Ah-ah-ah! You didn't say the magic word!"
             redirect to "/novels/#{@novel.slug}/characters/#{@character.slug}"
         end 
     end 
 
     patch '/novels/:novel_slug/characters/:slug' do
+    #Updates character and their tropes.
     @novel = Novel.find_by_slug(params[:novel_slug])
     @character = Character.find_by_slug(params[:slug])
-        if current_user.id == @novel.user_id
-            #Edits a characters tropes
-            #Does NOT edit the novel a character is assigned to, just offers to delete the character
+        if logged_in? && authorize(@novel)
+            #Does NOT edit the novel the character is assigned to. If you want to do that you have to delete and re-enter.
+            #Maybe additional functionality for a future version
             @character.update(name: params[:name], descrip: params[:descrip])
             @character.tropes.clear
             #This may not be the best way to do this but it's the simplest that I can think of right now?
@@ -88,17 +83,26 @@ class CharacterController < ApplicationController
                 @character.tropes << Trope.find(t)
             end 
             @character.save 
+            flash[:update] = "Character successfully updated."
             redirect to "/novels/#{@novel.slug}/characters/#{@character.slug}"
         else 
-            #Flash message
+            #Hm. Do I actually need the flash message in post and patch?
+            flash[:nedry] = "Ah-ah-ah! You didn't say the magic word!"
             redirect to "/novels/#{@novel.slug}/characters/#{@character.slug}"
         end 
     end 
 
     delete '/novels/:novel_slug/characters/:slug' do
+        #Deletes the character
+        #Not sure how best to do this flash message
         @novel = Novel.find_by_slug(params[:novel_slug])
         @character = Character.find_by_slug(params[:slug])
+        if logged_in? && authorize(@novel)
         @character.destroy
         redirect to "/novels/#{@novel.slug}/characters"
+        else 
+        flash[:nedry] = "Ah-ah-ah! You didn't say the magic word!"
+        redirect to "/novels/#{@novel.slug}/characters"
+        end 
     end 
 end 

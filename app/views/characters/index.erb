@@ -45,6 +45,11 @@ color: #6e1418 ;
 .fake-link {
     color: blue;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -60,6 +65,10 @@ color: #6e1418 ;
 </div>
 
 <div class="main">
+<% if flash.has?(:nedry) %>
+  <h2 class="error"><%= flash[:nedry] %></h2>
+  <br>
+<% end %>
 <% @characters.each do |char| %>
     <p><a href="/novels/<%= @novel.slug %>/characters/<%= char.slug %>"><%= char.name %></a></p> 
 <% end %>
