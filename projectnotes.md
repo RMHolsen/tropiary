@@ -1,4 +1,4 @@
-## To do:
+## To do
 
 ## Stretch Goals
 -- make genre a separate model, albeit a simple one: a novel has_many genres. Then add a show page to search novels by genre.
@@ -8,10 +8,12 @@
 -- make and run tests for no real reason, just so you know you can
 -- do something with the tropes page?
 
-## Bugs: 
+## Associations
+
+## Bugs 
 -- creating a novel does not include the synopsis posting to the new novel page (is this a validation thing?)
 
-## Notes: 
+## Notes
 -- slugging and unslugging: artists and modules lab, Intro to Modules reading
 -- login >> user index of novel projects >> novel: genre, word count, characters, edit option (list of tropes?) >> character >> edit option, list of tropes
 -- authentication vs authorization 
@@ -24,7 +26,7 @@
 (can probably also add this to create pages)
 -- @novel = current_user.novels.find(params[:novel]), @character = @novel.characters.find(params[:id])
 
-## Project Goals:
+## Requirements
 -- Build an M(odel)V(iews)C(ontroller) Sinatra application. DONE
 -- Use ActiveRecord with Sinatra. DONE
 -- Use multiple models. DONE

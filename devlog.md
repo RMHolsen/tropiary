@@ -59,3 +59,4 @@
 
 ## 9 November 2021
 -- relocated projectnotes.txt to devlog.md and projectnotes.md
+-- standardized projectnotes.md
