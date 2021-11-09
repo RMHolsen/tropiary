@@ -1,1 +1,3 @@
-Fill this in later
+Copyright (c) 2021 Rosario Holsen
+
+I, Rosario Holsen, support the development and availability of educational materials in the public domain. Accordingly I hereby grant Users of the Content set forth in this repository certain rights to reuse, build upon and share such Content. I, Rosario Holsen, allow you access to and use of the Content only on the condition that you accept all of the terms and conditions contained in the Content License set forth [look up creative commons licensing and post something on your web page here].  By accessing and/or using the Content, you are agreeing to all of the terms and conditions contained in the Content License.  If you do not agree to any or all of the terms of the Content License, you are prohibited from accessing, reviewing or using in any way the Content.

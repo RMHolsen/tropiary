@@ -1,9 +1,10 @@
 class Novel < ActiveRecord::Base
     belongs_to :user
+    #belongs_to :genre
     has_many :characters
     has_many :tropes, through: :characters 
 
-    validates :title, :genre, :word_count, :user_id, presence: true
+    #validates :title, :genre, :word_count, :user_id, presence: true
     #Makes sure all of these fields are there otherwise no save functionality
     #At some point this should be reflected in the CSS/HTML
 

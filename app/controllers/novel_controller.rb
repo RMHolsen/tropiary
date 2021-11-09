@@ -23,7 +23,7 @@ class NovelController < ApplicationController
     post '/novels' do
     #Collect the data and build a new novel off the current user
     @user = current_user
-    @novel = current_user.novels.build(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count], synopsis: params[:synopsis])
+    @novel = current_user.novels.build(title: params[:novel][:title], genre: params[:novel][:genre], word_count: params[:novel][:word_count], synopsis: params[:novel][:synopsis])
     #current_user.novels.build = @user.novels << Novel.create(attributes)
         if @novel.save 
             flash[:create] = "Novel successfully created."

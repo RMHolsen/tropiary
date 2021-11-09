@@ -48,11 +48,18 @@ color: #6e1418 ;
 </style>
 </head>
 <body>
+
 <h1>Edit a Trope</h1>
+
 <form action="/tropes/<%= @trope.slug %>" method=POST>
+
 <input type="hidden" id="hidden" name="_method" value="PATCH">
+
 <p><strong>Name:</strong> <input type="text" name="name" id="name" value="<%= @trope.name %>"></p>
+
 <p><strong>Description:</strong> <textarea type="text" name="descrip" id="descrip" cols=50 rows=10><%= @trope.descrip %></textarea></p>
+
 <input type="submit" value="Edit a Trope">
+
 </form>
 </body>

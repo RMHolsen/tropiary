@@ -5,7 +5,9 @@ class CharacterController < ApplicationController
     #Displays the list of characters in each novel
     #Originally this had an authorize method but then I decided I didn't care about the viewing abilities
     @novel = Novel.find_by_slug(params[:novel_slug])
-    @characters = @novel.characters.all 
+    #if logged_in? && authorize(@novel)
+    @characters = @novel.characters.all
+    #else consequences, end 
     erb :"/characters/index"
     end 
 
@@ -27,7 +29,6 @@ class CharacterController < ApplicationController
 
     post '/novels/:novel_slug/characters' do 
     @novel = Novel.find_by_slug(params[:novel_slug])
-        #Again, this is where the authorize method should go, silly.
         if logged_in? && authorize(@novel) 
             #Creates a new character for a specific novel based on parameters
             #Renders the character page for the character

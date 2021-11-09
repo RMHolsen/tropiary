@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 11) do
 
   create_table "char_tropes", force: :cascade do |t|
     t.integer "trope_id"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 9) do
     t.text "descrip"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "novels", force: :cascade do |t|
     t.string "title"
     t.string "genre"
@@ -30,6 +34,7 @@ ActiveRecord::Schema.define(version: 9) do
     t.integer "trope_id"
     t.integer "user_id"
     t.text "synopsis"
+    t.integer "genre_id"
   end
 
   create_table "tropes", force: :cascade do |t|
